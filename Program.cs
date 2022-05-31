@@ -15,16 +15,15 @@ namespace Quiz2
         {
             List<int> rolls = new List<int>();
             List<int> savedRolls = Load();
+            Console.WriteLine("----------------------------------------------------------------");
             Console.WriteLine("Swinburne Caves & Lizards Clubs Dice Roll");
             int selection = 0;
 
 
             while (selection != 8)
             {
-                Console.WriteLine("");
                 Console.WriteLine("----------------------------------------------------------------");
-                Console.WriteLine("");
-                Console.WriteLine("Select a task");
+
                 Console.WriteLine("");
                 Console.WriteLine("1.Roll dice");
                 Console.WriteLine("2.Average");
@@ -39,7 +38,7 @@ namespace Quiz2
                 Console.WriteLine("");
                 Console.WriteLine("----------------------------------------------------------------");
                 Console.WriteLine("");
-
+                Console.Write("Select a task: ");
                 string? input = Console.ReadLine();
                 selection = int.Parse(input);
                 if (selection == 1)
@@ -66,6 +65,7 @@ namespace Quiz2
             }
 
         }
+
 
         //asks how many dice to roll and rolls that amount, saves the rolls to a List
         public static List<int> RollDice()
@@ -127,9 +127,9 @@ namespace Quiz2
         {
             int total = 0;
 
-            foreach (int dice in rolls)
+            for (int i = 0; i < rolls.Count; i++)
             {
-                total += dice;
+                total = total + rolls[i];
                 //Console.WriteLine("total " + total);
             }
 
