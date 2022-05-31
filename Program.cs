@@ -1,5 +1,4 @@
-﻿//957354
-//Blair Rod - 103892145
+﻿//Blair Rod - 103892145
 using System;
 
 namespace Quiz2
@@ -116,7 +115,9 @@ namespace Quiz2
             {
                 average = average + rolls[i];
                 count++;
+                //Console.WriteLine("dice " + rolls[i]);
             }
+
 
             return average / count;
         }
@@ -126,7 +127,11 @@ namespace Quiz2
         {
             int total = 0;
 
-            foreach (int dice in rolls) total += dice;
+            foreach (int dice in rolls)
+            {
+                total += dice;
+                //Console.WriteLine("total " + total);
+            }
 
             return total;
         }
@@ -134,7 +139,7 @@ namespace Quiz2
         //saves the given List to a .csv file
         public static void Save(List<int> rolls)
         {
-            using (StreamWriter writer = new StreamWriter("./rollDate.csv"))
+            using (StreamWriter writer = new StreamWriter("./rollData.csv"))
             {
                 foreach (int dice in rolls)
                 {
@@ -152,8 +157,8 @@ namespace Quiz2
                 string[] lines = File.ReadAllLines("./rollData.csv");
                 foreach (string line in lines)
                 {
-                    string[] values = line.Split(",");
-                    dice.Add(int.Parse(values[1]));
+                    string values = line;
+                    dice.Add(int.Parse(values[0].ToString()));
                 }
             }
             return dice;
