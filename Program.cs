@@ -85,7 +85,7 @@ namespace Quiz2
             {
                 Console.WriteLine("I said 1 to 6 dice! rolling no dice");
             }
-            while (count < diceNum - 1)
+            while (count < diceNum)
             {
                 var rand = new Random();
                 num = rand.Next(1, 11);
@@ -98,11 +98,7 @@ namespace Quiz2
         //writes to console the given List
         public static void ListRolls(List<int> rolls)
         {
-
-            for (int i = 0; i < rolls.Count; i++)
-            {
-                Console.WriteLine(rolls[i]);
-            }
+            rolls.ForEach(Console.WriteLine);
         }
 
         //calculates and returns the average of the given List
